@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface AutorRepository extends JpaRepository<Autor,String> {
 
-    @Query
-    public Autor findByNombre(String nombre);
+    @Query("select a from Autor a where a.nombre= ?1")
+    Autor findByNombre(String nombre);
 }
